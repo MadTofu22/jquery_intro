@@ -1,5 +1,6 @@
 console.log('client.js loaded');
 let favFoods = ['paella', 'sushi', 'mac & cheese', 'steak'];
+let employees = [];
 
 $(document).ready(onReady);
 
@@ -10,6 +11,7 @@ function onReady () {
     $('#favoriteFoods').append('<li>Hello</li>');
     $('#favoriteFoods').on('click', '.deleteButton', deleteFunction);
     $('#favoriteFoods').on('click', '.changeColor', changeColor);
+    $('#submitForm').on('click', submitForm);
 }
 
 function deleteFunction () {
@@ -46,5 +48,23 @@ function buttonClicked () {
 function changeColor () {
 
     console.log('Change color has been clicked!');
-    $(this).parent().addClass('pinkColor');
+    $(this).parent().toggleClass('pinkColor');
+}
+
+function submitForm () {
+
+    console.log('Submitted!');
+
+    let name = $('#nameInput').val();
+    console.log('name:', name);
+
+    let title = $('#titleInput').val();
+    console.log('title:', title);
+
+    let newEmployee = {name, title};
+    employees.push(newEmployee);
+
+    $('#nameInput').val('');
+    $('#titleInput').val('');
+    
 }
