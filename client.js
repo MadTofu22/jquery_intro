@@ -1,6 +1,7 @@
 console.log('client.js loaded');
 let favFoods = ['paella', 'sushi', 'mac & cheese', 'steak'];
 let employees = [];
+let count = 0;
 
 $(document).ready(onReady);
 
@@ -12,13 +13,20 @@ function onReady () {
     $('#favoriteFoods').on('click', '.deleteButton', deleteFunction);
     $('#favoriteFoods').on('click', '.changeColor', changeColor);
     $('#submitForm').on('click', submitForm);
+    $('#counter').on('click', countUp);
+}
+
+function countUp () {
+
+    console.log('up');
+    $('#count').text(count);
+    count++;
 }
 
 function deleteFunction () {
 
     console.log('delete');
     $(this).parent().remove();
-    
 }
 
 function hello () {
@@ -34,9 +42,12 @@ function goodbye () {
 function buttonClicked () {
 
     console.log(`I've been clicked!`);
+
+    let ulFoods = $('#favoriteFoods');
+    ulFoods.empty();
     
     for (let food of favFoods) {
-        $('#favoriteFoods').append(`
+        ulFoods.append(`
             <li>
                 ${food} 
                 <button class="deleteButton">Delete</button>
