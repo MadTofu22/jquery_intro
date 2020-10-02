@@ -8,6 +8,9 @@ function onReady () {
     console.log('hello from jquery');
     $('#clickMe').on('click', buttonClicked);
     $('#favoriteFoods').append('<li>Hello</li>');
+    for (let food of favFoods) {
+        $('#favoriteFoods').append(`<li>${food} <button>Delete</button></li>`);
+    }
 }
 
 function hello () {
