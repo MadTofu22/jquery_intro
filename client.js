@@ -8,9 +8,19 @@ function onReady () {
     console.log('hello from jquery');
     $('#clickMe').on('click', buttonClicked);
     $('#favoriteFoods').append('<li>Hello</li>');
+    
     for (let food of favFoods) {
-        $('#favoriteFoods').append(`<li>${food} <button>Delete</button></li>`);
+        $('#favoriteFoods').append(`<li>${food} <button class="deleteButton">Delete</button></li>`);
     }
+
+    $('.deleteButton').on('click', deleteFunction);
+}
+
+function deleteFunction () {
+
+    console.log('delete');
+    $(this).parent().remove();
+    
 }
 
 function hello () {
