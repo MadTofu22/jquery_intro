@@ -8,7 +8,8 @@ function onReady () {
     console.log('hello from jquery');
     $('#clickMe').on('click', buttonClicked);
     $('#favoriteFoods').append('<li>Hello</li>');
-    $('.deleteButton').on('click', deleteFunction);
+    $('#favoriteFoods').on('click', '.deleteButton', deleteFunction);
+    $('#favoriteFoods').on('click', '.changeColor', changeColor);
 }
 
 function deleteFunction () {
@@ -33,6 +34,17 @@ function buttonClicked () {
     console.log(`I've been clicked!`);
     
     for (let food of favFoods) {
-        $('#favoriteFoods').append(`<li>${food} <button class="deleteButton">Delete</button></li>`);
+        $('#favoriteFoods').append(`
+            <li>
+                ${food} 
+                <button class="deleteButton">Delete</button>
+                <button class="changeColor">Change Color</button>
+            </li>`);
     }
+}
+
+function changeColor () {
+
+    console.log('Change color has been clicked!');
+    $(this).parent().addClass('pinkColor');
 }
