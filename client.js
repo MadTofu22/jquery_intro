@@ -8,11 +8,6 @@ function onReady () {
     console.log('hello from jquery');
     $('#clickMe').on('click', buttonClicked);
     $('#favoriteFoods').append('<li>Hello</li>');
-    
-    for (let food of favFoods) {
-        $('#favoriteFoods').append(`<li>${food} <button class="deleteButton">Delete</button></li>`);
-    }
-
     $('.deleteButton').on('click', deleteFunction);
 }
 
@@ -36,4 +31,8 @@ function goodbye () {
 function buttonClicked () {
 
     console.log(`I've been clicked!`);
+    
+    for (let food of favFoods) {
+        $('#favoriteFoods').append(`<li>${food} <button class="deleteButton">Delete</button></li>`);
+    }
 }
