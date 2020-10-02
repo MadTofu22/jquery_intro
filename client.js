@@ -1,4 +1,5 @@
 console.log('client.js loaded');
+let favFoods = ['paella', 'sushi', 'mac & cheese', 'steak'];
 
 $(document).ready(onReady);
 
@@ -6,6 +7,7 @@ function onReady () {
     
     console.log('hello from jquery');
     $('#clickMe').on('click', buttonClicked);
+    $('#favoriteFoods').append('<li>Hello</li>');
 }
 
 function hello () {
